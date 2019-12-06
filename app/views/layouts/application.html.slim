@@ -2,7 +2,7 @@ doctype html
 html
   head
     title
-      | HikenshaNet
+      = "#{yield(:title)} | 被験者ネット"
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
