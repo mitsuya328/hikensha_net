@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "StaticPages", type: :system do
   it "should get home" do
     visit root_path
-    expect(page).to have_title "Home"
+    expect(page).to have_title "被験者ネット"
   end
 
   it "should get help" do
