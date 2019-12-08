@@ -5,12 +5,32 @@
         1,
         null,
         1,
-        16,
-        16,
-        3,
+        20,
+        20,
+        4,
         null,
-        13,
+        16,
         null,
+        null,
+        null
+      ],
+      "/Users/maeda/environment/hikensha_net/app/helpers/sessions_helper.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        15,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        15,
         null,
         null
       ],
@@ -24,7 +44,7 @@
       ],
       "/Users/maeda/environment/hikensha_net/app/models/user.rb": [
         1,
-        4,
+        5,
         1,
         1,
         1,
@@ -32,6 +52,13 @@
         null,
         1,
         1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        null,
         null
       ],
       "/Users/maeda/environment/hikensha_net/app/models/application_record.rb": [
@@ -41,6 +68,45 @@
       ],
       "/Users/maeda/environment/hikensha_net/app/controllers/application_controller.rb": [
         1,
+        1,
+        null
+      ],
+      "/Users/maeda/environment/hikensha_net/app/controllers/sessions_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        2,
+        2,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/Users/maeda/environment/hikensha_net/app/controllers/static_pages_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
         null
       ],
       "/Users/maeda/environment/hikensha_net/app/controllers/users_controller.rb": [
@@ -68,24 +134,6 @@
         1,
         2,
         null,
-        null,
-        null
-      ],
-      "/Users/maeda/environment/hikensha_net/app/controllers/static_pages_controller.rb": [
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
         null,
         null
       ],
@@ -117,6 +165,6 @@
         0
       ]
     },
-    "timestamp": 1575770276
+    "timestamp": 1575795338
   }
 }
