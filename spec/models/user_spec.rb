@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user){ User.new(name: "Example User", email: "user@example.com",
-                      password: "foobar", password_confirmation: "foobar") }
+  let(:user){ FactoryBot.create(:user) }
 
   it "should be valid" do
     expect(user).to be_valid
@@ -68,5 +67,9 @@ RSpec.describe User, type: :model do
   it "password should have a minimum length" do
     user.password = user.password_confirmation = "a"*5
     expect(user).not_to be_valid
+  end
+
+  it "authenticated? should return false for a user with nil digest" do
+    expect(user.authenticated?('')).to be_falsey
   end
 end
