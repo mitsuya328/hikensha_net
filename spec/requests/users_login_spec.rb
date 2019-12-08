@@ -13,11 +13,14 @@ RSpec.describe "UsersLogin", type: :request do
     expect(flash).to be_empty
   end
 
-  it "with valid information" do
+  it "with valid information followed by logout" do
     get login_path
     post login_path, params: { session: { email:    user.email,
                                           password: 'password' } }
-    expect(response).to redirect_to user
     expect(logged_in?).to be_truthy
+    expect(response).to redirect_to user
+    delete logout_path
+    expect(logged_in?).to be_falsey
+    expect(response).to redirect_to root_path
   end
 end
