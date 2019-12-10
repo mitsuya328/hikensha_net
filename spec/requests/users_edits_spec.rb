@@ -4,6 +4,7 @@ RSpec.describe "UsersEdit", type: :request do
   let(:user){ FactoryBot.create(:user) }
 
   it "unsuccessful edit" do
+    log_in_as(user)
     get edit_user_path(user)
     expect(response).to render_template 'users/edit'
     patch user_path(user), params: { user: { name:  "",
@@ -14,6 +15,7 @@ RSpec.describe "UsersEdit", type: :request do
   end
 
   it "successful edit" do
+    log_in_as(user)
     get edit_user_path(user)
     expect(response).to render_template 'users/edit'
     name  = "Foo Bar"
