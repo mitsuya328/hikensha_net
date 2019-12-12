@@ -40,4 +40,25 @@ RSpec.describe "Users", type: :request do
       expect(response).to redirect_to root_path
     end
   end
+
+  it "should redirect index when not logged in" do
+    get users_path
+    expect(response).to redirect_to login_path
+  end
+
+  it "should redirect index when not logged in as a non-admin" do
+    log_in_as(other_user)
+    get users_path
+    expect(response).to redirect_to root_path
+  end
+
+  it "should not allow admin attribute to be edited via the web" do
+    log_in_as(other_user)
+    expect(other_user).not_to be_admin
+    patch user_path(other_user), params: {
+                                    user: { password:              "foobaz",
+                                            password_confirmation: "foobaz",
+                                            admin: true } }
+    expect(other_user.reload).not_to be_admin
+  end
 end
