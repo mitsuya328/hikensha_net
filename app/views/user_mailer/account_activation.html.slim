@@ -1,0 +1,7 @@
+= "こんにちは、 #{@user.name}さん"
+br
+| 被験者ネットにご登録いただいたメールアドレスを確認します。
+br
+| 下記へアクセスし、登録を完了してください。
+br
+= link_to "登録", edit_account_activation_url(@user.activation_token, email: @user.email)

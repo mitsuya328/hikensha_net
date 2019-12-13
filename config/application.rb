@@ -15,6 +15,16 @@ module HikenshaNet
       app.routes_reloader.paths.delete_if {|path| path =~ /activestorage/}
       app.routes_reloader.paths.delete_if {|path| path =~ /actionmailbox/ }
     }
+
+    config.generators do |g| g.test_framework :rspec,
+                              fixtures: false,
+                              view_specs: false,
+                              helper_specs: false,
+                              routing_specs: false
+    end
+
+    config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

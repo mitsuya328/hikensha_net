@@ -21,7 +21,7 @@ RSpec.describe "UsersDestroys", type: :request do
 
   it "delete when logged in as a admin" do
     log_in_as(user)
-    expect{
+    expect{ 
       delete user_path(other_user)
     }.to change{ User.count }.by(-1)
   end
