@@ -1,0 +1,10 @@
+- provide(:title, "パスワードのリセット")
+h1 パスワードのリセット
+
+div.row
+  div.col-md-6.col-md-offset-3
+    = form_for(:password_reset, url: password_resets_path) do |f| 
+      = f.label :email, "メールアドレス"
+      = f.email_field :email, class: 'form-control'
+
+      = f.submit "送信", class: "btn btn-primary"
