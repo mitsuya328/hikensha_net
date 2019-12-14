@@ -15,7 +15,7 @@ RSpec.describe UserMailer, type: :mailer do
   it "account_activation" do
     #user.activation_token = User.new_token
     #mail = UserMailer.account_activation(user)
-    expect(mail.subject).to eq "Account activation"
+    expect(mail.subject).to eq "メールアドレスのご確認"
     expect(mail.to).to eq [user.email]
     expect(mail.from).to eq ["noreply@example.com"]
     part = mail.body.parts.detect { |part| part.content_type == 'text/plain; charset=UTF-8'}
