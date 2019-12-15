@@ -6,6 +6,9 @@ table.table.table-hover
       th = Experiment.human_attribute_name(:name)
       td = @experiment.name
     tr
+      th = Experiment.human_attribute_name(:picture)
+      td = image_tag @experiment.picture.url if @experiment.picture?
+    tr
       th = Experiment.human_attribute_name(:description)
       td = simple_format(h(@experiment.description), {}, sanitize: false, wrapper_tag: "div")
     tr

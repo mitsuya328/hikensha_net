@@ -19,7 +19,7 @@ RSpec.describe "Experiments", type: :request do
     expect(response).to redirect_to login_path
   end
 
-  it "should redirect destroy when not logged in" do
+  it "should redirect destroy for wrong experiment" do
     log_in_as(other_user)
     expect{
       delete experiment_path(experiment)

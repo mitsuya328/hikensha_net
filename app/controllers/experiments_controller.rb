@@ -41,7 +41,7 @@ class ExperimentsController < ApplicationController
   private
   
     def experiment_params
-      params.require(:experiment).permit(:name, :description, :deadline)
+      params.require(:experiment).permit(:name, :description, :deadline, :picture)
     end
 
     # 正しいユーザーかどうか確認

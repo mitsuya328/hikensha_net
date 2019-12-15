@@ -26,7 +26,7 @@ RSpec.describe "UsersDestroys", type: :request do
     }.to change{ User.count }.by(-1)
   end
 
-  it "delete when logged in as a correct_user" do
+  it "delete when logged in as a correct user" do
     log_in_as(other_user)
     expect{
       delete user_path(other_user)

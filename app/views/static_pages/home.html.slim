@@ -1,6 +1,13 @@
 h1 被験者ネット
 
-- if logged_in? 
+p 
+  | 被験者ネットは実験の被験者を募集したり、
+    被験者としてほかの人の実験に参加したりするためのサイトです。
+p
+  | くわしくは
+  = link_to "こちら", about_path
+
+- if logged_in? && false
   h2 実験に参加してくれた人の実験
   - if @feed_experiments.any?
     ul.experiments
