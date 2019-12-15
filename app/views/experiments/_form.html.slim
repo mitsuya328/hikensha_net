@@ -1,0 +1,13 @@
+= form_for(@experiment) do |f|
+  = render 'shared/error_messages', object: @experiment
+
+  = f.label :name
+  = f.text_field :name, class: 'form-control'
+
+  = f.label :description
+  = f.text_area :description, class: 'form-control'
+
+  = f.label :deadline
+  = f.text_field :deadline, class: 'date-picker'
+
+  = f.submit nil, class: "btn btn-primary"

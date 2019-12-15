@@ -72,4 +72,9 @@ RSpec.describe User, type: :model do
   it "authenticated? should return false for a user with nil digest" do
     expect(user.authenticated?(:remember, '')).to be_falsey
   end
+
+  it "associated experiments should be destroyed" do
+    user.experiments.create!(name: "experiment")
+    expect{ user.destroy }.to change{ Experiment.count }.by(-1)
+  end
 end

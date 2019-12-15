@@ -1,5 +1,10 @@
 - provide(:title, @user.name)
 div.row
- aside.col-md-4
-  section.user_info
-    h1 = @user.name
+  aside.col-md-4
+    section.user_info
+      h1 = @user.name
+  div.col-md-8
+    - if @user.experiments.any?
+      ul.experiments
+        = render @experiments
+      = will_paginate @experiments

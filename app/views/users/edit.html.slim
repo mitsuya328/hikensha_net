@@ -1,8 +1,6 @@
-- provide(:title, "Edit user")
+- provide(:title, "ユーザー情報の更新")
 h1 プロフィールの更新
 
-div.row
-  div.col-md-6.col-md-offset-3
-    = render partial: 'form', locals: { path: user_path }
-    = link_to "退会する", @user, method: :delete,
-                      data: { confirm: "登録情報を削除します。よろしいですか?" }, class: "btn btn-danger mt-5"
+= render partial: 'form', locals: { path: user_path }
+= link_to "退会する", @user, method: :delete,
+                  data: { confirm: "登録情報を削除します。よろしいですか?" }, class: "btn btn-danger mt-5"

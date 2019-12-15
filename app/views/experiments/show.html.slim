@@ -1,0 +1,18 @@
+h1 実験の詳細
+
+table.table.table-hover
+  tbody
+    tr
+      th = Experiment.human_attribute_name(:name)
+      td = @experiment.name
+    tr
+      th = Experiment.human_attribute_name(:description)
+      td = simple_format(h(@experiment.description), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th = Experiment.human_attribute_name(:deadline)
+      td = @experiment.deadline
+- if current_user == @experiment.user
+  = link_to '編集', edit_experiment_path, class: 'btn btn-primary mr-3'
+  = link_to '削除', @experiment, method: :delete,
+            data: { confirm: "「#{@experiment.name}」を削除します。よろしいですか?"},
+            class: 'btn btn-danger'

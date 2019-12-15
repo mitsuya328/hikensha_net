@@ -18,7 +18,7 @@ RSpec.describe "UsersLogin", type: :request do
     post login_path, params: { session: { email:    user.email,
                                           password: 'password' } }
     expect(is_logged_in?).to be_truthy
-    expect(response).to redirect_to user
+    expect(response).to redirect_to root_path
     delete logout_path
     expect(is_logged_in?).to be_falsey
     expect(response).to redirect_to root_path

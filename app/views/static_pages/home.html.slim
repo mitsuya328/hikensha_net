@@ -1,5 +1,15 @@
 h1 被験者ネット
-ul
-  li 実験に参加してくれた人の実験
-  li 新着の実験
-  li 締め切りが近い実験
+
+- if logged_in? 
+  h2 実験に参加してくれた人の実験
+  - if @feed_experiments.any?
+    ul.experiments
+      = render @feed_experiments
+h2 新着の実験
+- if @recent_experiments.any?
+  ul.experiments
+    = render @recent_experiments
+h2 締め切りが近い実験
+- if @imminent_experiments.any?
+  ul.experiments
+    = render @imminent_experiments

@@ -13,6 +13,8 @@ User.create!(name:  "Example User",
              activated: true,
              activated_at: Time.zone.now)
 
+User.first.experiments.create!(name: "テストデータ", deadline: 1.years.after)
+
 if Rails.env.development?
   99.times do |n|
     name  = Faker::Name.name
@@ -24,5 +26,13 @@ if Rails.env.development?
                 password_confirmation: password,
                 activated: true,
                 activated_at: Time.zone.now)
+  end
+
+  users = User.order(:created_at).take(6)
+  5.times do |n|
+    users.each do |user|
+      name = "テストデータ#{n+1} by #{user.name}"
+      user.experiments.create!(name: name, deadline: n.day.after)
+    end
   end
 end

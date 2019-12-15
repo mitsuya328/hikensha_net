@@ -1,15 +1,14 @@
-header.navbar.navbar-fixed-top.navbar-inverse
+header.navbar.navbar-expand.navbar-dark.bg-dark.fixed-top
   div.container
     = link_to "被験者ネット", root_path, id: "logo"
     nav
       ul.nav.navbar-nav.navbar-right
-        li = link_to "ホーム", root_path
-        li = link_to "ヘルプ", help_path
         - if logged_in?
           - if current_user.admin?
-            li = link_to "ユーザーの管理", users_path
+            li = link_to "ユーザーの管理", users_path, class: "nav-link"
+          li = link_to "被験者募集", new_experiment_path, class: "nav-link"
           li.dropdown
-            a href="#" class="dropdown-toggle" data-toggle="dropdown"
+            a.nav-link href="#" class="dropdown-toggle" data-toggle="dropdown"
               | アカウント
               b.caret
             ul.dropdown-menu
@@ -18,5 +17,5 @@ header.navbar.navbar-fixed-top.navbar-inverse
               li.divider
               li = link_to "ログアウト", logout_path, method: :delete
         - else
-          li = link_to "登録", signup_path
-          li = link_to "ログイン", login_path
+          li = link_to "登録", signup_path, class: "nav-link"
+          li = link_to "ログイン", login_path, class: "nav-link"

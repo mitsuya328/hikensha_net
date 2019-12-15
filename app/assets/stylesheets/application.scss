@@ -1,5 +1,7 @@
-@import "bootstrap-sprockets";
+//@import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "jquery-ui/datepicker";
 
 /* mixins, variables, etc. */
 
@@ -14,7 +16,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 
 body {
-  padding-top: 60px;
+  padding-top: 100px;
 }
 
 section {
@@ -51,7 +53,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $gray-light;
+  //color: $gray-light;
 }
 
 p {
@@ -82,11 +84,11 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
+  //color: $gray-light;
   a {
-    color: $gray;
+    //color: $gray;
     &:hover {
-      color: $gray-darker;
+      //color: $gray-darker;
     }
   }
   small {
@@ -161,12 +163,12 @@ input {
   }
 }
 
-.field_with_errors {
+/*.field_with_errors {
   @extend .has-error;
   .form-control {
-    color: $state-danger-text;
+    //color: $state-danger-text;
   }
-}
+}*/
 
 .checkbox {
   margin-top: -10px;
@@ -182,14 +184,18 @@ input {
   margin-left: 0;
 }
 
-/* Users index */
+/* datepicker */
+#ui-datepicker-div{
+  background-color: #fff;
+}
 
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+.ui-datepicker{
+  .ui-datepicker-prev, .ui-datepicker-next{
+    span{
+      left: 0;
+    }
+  }
+  .ui-icon{
+    text-indent: 0px;
   }
 }

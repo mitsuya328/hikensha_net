@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       if @user.activated?
         log_in @user
         params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-        redirect_back_or @user
+        redirect_back_or root_path
       else
         #message  = "認証メールを開いてメールアドレスを確認してください。#{view_context.link_to '認証メールを再送信', '#'}".html_safe
         message  = "認証メールを開いてメールアドレスを確認してください。"
