@@ -1,0 +1,16 @@
+h1 被験者一覧
+
+.mb-3
+  table.table.table-hover
+    thread.thread-default
+      tr
+        th= Subject.human_attribute_name(:id)
+        th= Subject.human_attribute_name(:start_at)
+        th= Subject.human_attribute_name(:sex)
+        th= Subject.human_attribute_name(:birth_date)
+    tbody
+      - @subjects.each do |subject|
+        tr= subject.id
+        tr= subject.start_at
+        tr= subject.sex
+        tr= subject.birth_date

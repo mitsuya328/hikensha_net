@@ -20,6 +20,11 @@ ja:
         description: 説明
         deadline: 応募締め切り
         picture: 画像
+      subject:
+        id: ID
+        start_at: 開始時刻
+        sex: 性別
+        birth_date: 生年月日
   date:
     abbr_day_names:
     - 日

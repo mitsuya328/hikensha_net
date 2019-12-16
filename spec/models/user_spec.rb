@@ -74,7 +74,8 @@ RSpec.describe User, type: :model do
   end
 
   it "associated experiments should be destroyed" do
-    user.experiments.create!(name: "experiment")
-    expect{ user.destroy }.to change{ Experiment.count }.by(-1)
+    experiment = user.experiments.create!(name: "experiment")
+    experiment.subjects.create!(start_at: 1.week.after)
+    expect{ user.destroy }.to change{ Experiment.count }.by(-1).and change{ Subject.count }.by(-1)
   end
 end
