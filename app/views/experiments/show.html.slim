@@ -15,6 +15,7 @@ table.table.table-hover
       th = Experiment.human_attribute_name(:deadline)
       td = @experiment.deadline
 - if current_user == @experiment.user
+  = link_to '被験者一覧', experiment_subjects_path(@experiment), class: 'btn btn-info mr-3'
   = link_to '編集', edit_experiment_path, class: 'btn btn-primary mr-3'
   = link_to '削除', @experiment, method: :delete,
             data: { confirm: "「#{@experiment.name}」を削除します。よろしいですか?"},

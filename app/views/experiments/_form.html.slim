@@ -10,6 +10,11 @@
   = f.label :deadline
   = f.text_field :deadline, class: 'date-picker'
 
+  p 実験開始時刻
+  - @experiment.subjects.each do |subject|
+    = f.fields_for :subjects, subject do |subject_field|
+      = subject_field.datetime_select :start_at, {}, class: 'form-control'
+
   = f.submit nil, class: "btn btn-primary"
 
   span.picture

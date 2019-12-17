@@ -93,6 +93,10 @@
         1,
         null
       ],
+      "/Users/maeda/environment/hikensha_net/app/helpers/subjects_helper.rb": [
+        1,
+        null
+      ],
       "/Users/maeda/environment/hikensha_net/app/helpers/users_helper.rb": [
         1,
         null
@@ -125,12 +129,13 @@
         1,
         1,
         1,
+        1,
         null,
         1,
         null,
         null,
         1,
-        19,
+        18,
         0,
         null,
         null,
@@ -167,7 +172,7 @@
       "/Users/maeda/environment/hikensha_net/app/models/subject.rb": [
         1,
         1,
-        21,
+        39,
         1,
         1,
         null
@@ -189,14 +194,14 @@
         null,
         null,
         1,
-        111,
+        110,
         null,
-        111,
+        110,
         null,
         null,
         null,
         1,
-        113,
+        112,
         null,
         null,
         null,
@@ -255,13 +260,13 @@
         null,
         null,
         1,
-        123,
+        122,
         null,
         null,
         null,
         1,
-        89,
-        89,
+        88,
+        88,
         null,
         null
       ],
@@ -321,6 +326,9 @@
         null,
         1,
         2,
+        2,
+        6,
+        null,
         null,
         null,
         1,
@@ -355,6 +363,7 @@
         null,
         1,
         4,
+        null,
         null,
         null,
         null,
@@ -555,6 +564,14 @@
         null,
         0
       ],
+      "/Users/maeda/environment/hikensha_net/app/controllers/subjects_controller.rb": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "/Users/maeda/environment/hikensha_net/app/channels/application_cable/connection.rb": [
         0,
         0,
@@ -568,6 +585,6 @@
         0
       ]
     },
-    "timestamp": 1576500573
+    "timestamp": 1576593146
   }
 }

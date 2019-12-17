@@ -8,6 +8,9 @@ class ExperimentsController < ApplicationController
 
   def new
     @experiment = Experiment.new
+    3.times{
+      @experiment.subjects.build
+    }
   end
 
   def create
@@ -41,7 +44,8 @@ class ExperimentsController < ApplicationController
   private
   
     def experiment_params
-      params.require(:experiment).permit(:name, :description, :deadline, :picture)
+      params.require(:experiment).permit(:name, :description, :deadline, :picture,
+                                         subjects_attributes: [:start_at])
     end
 
     # 正しいユーザーかどうか確認

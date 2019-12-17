@@ -1,16 +1,19 @@
 h1 被験者一覧
 
 .mb-3
-  table.table.table-hover
-    thread.thread-default
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= "No."
+      th= Subject.human_attribute_name(:start_at)
+      th= Subject.human_attribute_name(:email)
+      th= Subject.human_attribute_name(:sex)
+      th= Subject.human_attribute_name(:birth_date)
+  tbody
+    - @subjects.zip(1..100) do |subject, i|
       tr
-        th= Subject.human_attribute_name(:id)
-        th= Subject.human_attribute_name(:start_at)
-        th= Subject.human_attribute_name(:sex)
-        th= Subject.human_attribute_name(:birth_date)
-    tbody
-      - @subjects.each do |subject|
-        tr= subject.id
-        tr= subject.start_at
-        tr= subject.sex
-        tr= subject.birth_date
+        td= i
+        td= subject.start_at
+        td= subject.email
+        td= subject.sex
+        td= subject.birth_date

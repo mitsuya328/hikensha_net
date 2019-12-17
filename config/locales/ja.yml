@@ -23,6 +23,7 @@ ja:
       subject:
         id: ID
         start_at: 開始時刻
+        email: メールアドレス
         sex: 性別
         birth_date: 生年月日
   date:

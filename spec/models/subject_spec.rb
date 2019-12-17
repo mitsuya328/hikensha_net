@@ -8,10 +8,10 @@ RSpec.describe Subject, type: :model do
     expect(subject).to be_valid
   end
 
-  it "experiment id  shoudl be present" do
-    subject.experiment_id = nil
-    expect(subject).not_to be_valid
-  end
+  #it "experiment id  shoudl be present" do
+  #  subject.experiment_id = nil
+  #  expect(subject).not_to be_valid
+  #end
 
   it "start_at should be present" do
     subject.start_at = nil

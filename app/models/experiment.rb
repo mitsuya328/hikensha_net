@@ -1,6 +1,7 @@
 class Experiment < ApplicationRecord
   belongs_to :user
   has_many :subjects, dependent: :destroy
+  accepts_nested_attributes_for :subjects
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :name, presence: true, length: { maximum: 255 }
