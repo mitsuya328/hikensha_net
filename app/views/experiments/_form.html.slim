@@ -8,13 +8,13 @@
   = f.text_area :description, class: 'form-control'
 
   = f.label :deadline
-  = f.text_field :deadline, class: 'date-picker'
+  = f.text_field :deadline, class: 'date-picker form-control'
 
   p 実験開始時刻
   - @experiment.subjects.each do |subject|
     = f.fields_for :subjects, subject do |subject_field|
-      = subject_field.datetime_select :start_at, {}, class: 'form-control'
-
+      = subject_field.datetime_select :start_at, :minute_step => 10, :include_blank => true
+    br
   = f.submit nil, class: "btn btn-primary"
 
   span.picture
