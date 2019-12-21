@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   has_many :experiments, dependent: :destroy
-  attr_accessor :remember_token, :activation_token, :reset_token
+  has_many :experiment_forms
+  attr_accessor :remember_token, :activation_token, :reset_token, :experiment_forms
   before_save   :downcase_email
   before_create :create_activation_digest
-  attr_accessor :remember_token
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },

@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    #debugger
     if @user.save
       @user.send_activation_email
       flash[:info] = "認証メールを送信しました。メールアドレスを確認してください"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_16_112026) do
+ActiveRecord::Schema.define(version: 2019_12_19_103827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,16 +28,23 @@ ActiveRecord::Schema.define(version: 2019_12_16_112026) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.datetime "start_at"
     t.string "email"
     t.string "sex"
     t.date "birth_date"
     t.text "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "timetable_id", null: false
+    t.index ["timetable_id"], name: "index_subjects_on_timetable_id"
+  end
+
+  create_table "timetables", force: :cascade do |t|
+    t.datetime "start_at"
     t.bigint "experiment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["experiment_id", "start_at"], name: "index_subjects_on_experiment_id_and_start_at"
-    t.index ["experiment_id"], name: "index_subjects_on_experiment_id"
+    t.index ["experiment_id", "start_at"], name: "index_timetables_on_experiment_id_and_start_at"
+    t.index ["experiment_id"], name: "index_timetables_on_experiment_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -57,5 +64,5 @@ ActiveRecord::Schema.define(version: 2019_12_16_112026) do
   end
 
   add_foreign_key "experiments", "users"
-  add_foreign_key "subjects", "experiments"
+  add_foreign_key "timetables", "experiments"
 end

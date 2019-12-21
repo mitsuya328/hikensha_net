@@ -7,17 +7,15 @@ class ExperimentsController < ApplicationController
   end
 
   def new
-    @experiment = Experiment.new
-    3.times{
-      @experiment.subjects.build
-    }
+    @form = ExperimentForm.new
   end
 
   def create
-    @experiment = current_user.experiments.build(experiment_params)
-    if @experiment.save
+    @form = ExperimentForm.new(experiment_form_params)
+    @form.experiment.user = current_user
+    if @form.save
       flash[:success] = "実験を登録しました"
-      redirect_to @experiment
+      redirect_to @form.experiment
     else
       render 'new'
     end
@@ -42,10 +40,14 @@ class ExperimentsController < ApplicationController
   end
 
   private
-  
+
     def experiment_params
-      params.require(:experiment).permit(:name, :description, :deadline, :picture,
-                                         subjects_attributes: [:start_at])
+      params.require(:experiment).permit(:name, :description, :deadline, :picture)
+    end
+
+    def experiment_form_params
+      params.require(:experiment_form).permit(experiment_attributes: [:name, :description, :deadline, :picture],
+                                              timetables_attributes: [:start_at])
     end
 
     # 正しいユーザーかどうか確認

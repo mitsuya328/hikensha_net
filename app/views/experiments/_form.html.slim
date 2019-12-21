@@ -1,25 +1,27 @@
-= form_for(@experiment) do |f|
-  = render 'shared/error_messages', object: @experiment
+= form_for(@form, url: path) do |fb|
+  = render 'shared/error_messages', object: @form
 
-  = f.label :name
-  = f.text_field :name, class: 'form-control'
+  = fb.fields_for :experiment do |f|
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
 
-  = f.label :description
-  = f.text_area :description, class: 'form-control'
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
 
-  = f.label :deadline
-  = f.text_field :deadline, class: 'date-picker form-control'
+    = f.label :deadline
+    = f.text_field :deadline, class: 'date-picker form-control'
 
-  p 実験開始時刻
-  - @experiment.subjects.each do |subject|
-    = f.fields_for :subjects, subject do |subject_field|
-      = subject_field.datetime_select :start_at, :minute_step => 10, :include_blank => true
+    span.picture
+      = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' 
+  br
+
+  = fb.fields_for :timetables do |f|
+    = f.datetime_select :start_at
+    /= f.datetime_select :start_at, :include_blank => true
     br
-  = f.submit nil, class: "btn btn-primary"
 
-  span.picture
-    = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' 
-
+  = fb.submit nil, class: "btn btn-primary"
+  
 javascript:
   $('#experiment_picture').bind('change', function() {
     var size_in_megabytes = this.files[0].size/1024/1024;

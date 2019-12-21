@@ -1,6 +1,5 @@
 class Subject < ApplicationRecord
-  belongs_to :experiment
-  default_scope -> { order(start_at: :asc) }
-  validates_presence_of :experiment
-  validates :start_at, presence: true
+  belongs_to :timetable
+  validates :timetable_id, presence: true
+  validates :email, presence: true
 end
