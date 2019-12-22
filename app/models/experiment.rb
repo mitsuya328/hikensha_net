@@ -7,6 +7,12 @@ class Experiment < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
   validate :picture_size
 
+  accepts_nested_attributes_for :timetables, allow_destroy: true
+
+  REGISTRABLE_ATTRIBUTES = %i(name description deadline picture)
+
+  after_initialize { timetables.build unless self.persisted? || timetables.present? }
+
   private
 
     # アップロードされた画像のサイズをバリデーションする

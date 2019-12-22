@@ -7,25 +7,27 @@ class ExperimentsController < ApplicationController
   end
 
   def new
-    @form = ExperimentForm.new
+    @experiment = Experiment.new
   end
 
   def create
-    @form = ExperimentForm.new(experiment_form_params)
-    @form.experiment.user = current_user
-    if @form.save
+    @experiment = Experiment.new(experiment_params)
+    @experiment.user = current_user
+    if @experiment.save
       flash[:success] = "実験を登録しました"
-      redirect_to @form.experiment
+      redirect_to @experiment
     else
       render 'new'
     end
   end
 
   def edit
+    @experiment = Experiment.find(params[:id])
   end
 
   def update
-    if @experiment.update(experiment_params)
+    @experiment = Experiment.find(params[:id])
+    if @experiment.update_attributes(experiment_params)
       flash[:success] = "実験内容を更新しました"
       redirect_to @experiment
     else
@@ -42,12 +44,13 @@ class ExperimentsController < ApplicationController
   private
 
     def experiment_params
-      params.require(:experiment).permit(:name, :description, :deadline, :picture)
-    end
-
-    def experiment_form_params
-      params.require(:experiment_form).permit(experiment_attributes: [:name, :description, :deadline, :picture],
-                                              timetables_attributes: [:start_at])
+      #params.require(:experiment).permit(:name, :description, :deadline, :picture)
+      params
+      .require(:experiment)
+      .permit(
+        Experiment::REGISTRABLE_ATTRIBUTES +
+        [timetables_attributes: Timetable::REGISTRABLE_ATTRIBUTES]
+      )
     end
 
     # 正しいユーザーかどうか確認

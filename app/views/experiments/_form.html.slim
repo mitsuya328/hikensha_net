@@ -1,26 +1,26 @@
-= form_for(@form, url: path) do |fb|
-  = render 'shared/error_messages', object: @form
+= form_for(@experiment, url: path, html: {method: method}) do |f|
+  = render 'shared/error_messages', object: @experiment
 
-  = fb.fields_for :experiment do |f|
-    = f.label :name
-    = f.text_field :name, class: 'form-control'
+  = f.label :name
+  = f.text_field :name, class: 'form-control'
 
-    = f.label :description
-    = f.text_area :description, class: 'form-control'
+  = f.label :description
+  = f.text_area :description, class: 'form-control'
 
-    = f.label :deadline
-    = f.text_field :deadline, class: 'date-picker form-control'
+  = f.label :deadline
+  = f.text_field :deadline, class: 'date-picker form-control'
 
-    span.picture
+  span.picture
       = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' 
   br
 
-  = fb.fields_for :timetables do |f|
-    = f.datetime_select :start_at
-    /= f.datetime_select :start_at, :include_blank => true
+  = f.fields_for :timetables do |t|
+    = t.hidden_field :id
+    = t.label :start_at
+    = t.datetime_select :start_at
     br
 
-  = fb.submit nil, class: "btn btn-primary"
+  = f.submit nil, class: "btn btn-primary"
   
 javascript:
   $('#experiment_picture').bind('change', function() {

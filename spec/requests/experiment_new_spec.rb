@@ -25,7 +25,8 @@ RSpec.describe "ExperimentNew", type: :request do
       post experiments_path, params: {experiment: { name: "test",
                                                   description: "",
                                                   deadline: 1.week.after,
-                                                  picture: image } }
+                                                  picture: image,
+                                                  timetables: { id: 1, start_at: 1.day.after } } }
     }.to change { Experiment.count }.by(1)
     expect(response).to redirect_to assigns(:experiment)
   end

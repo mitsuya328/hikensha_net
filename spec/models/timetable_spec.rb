@@ -14,8 +14,8 @@ RSpec.describe Timetable, type: :model do
   #  expect(timetabele).not_to be_valid
   #end
 
-  it "start_at should be present" do
-    timetabele.start_at = nil
-    expect(timetabele).not_to be_valid
-  end
+  #it "start_at should be present" do
+  #  timetabele.start_at = nil
+  #  expect(timetabele).not_to be_valid
+  #end
 end
