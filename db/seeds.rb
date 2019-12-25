@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#issue 管理パスワードの環境変数化　テストユーザーの作成
 User.create!(name:  "Example User",
              email: "example@railstutorial.org",
              password:              "foobar",
@@ -14,6 +16,8 @@ User.create!(name:  "Example User",
              activated_at: Time.zone.now)
 
 User.first.experiments.create!(name: "テストデータ", deadline: 1.years.after)
+
+Experiment.first.timetables.create!(start_at: 1.week.after)
 
 if Rails.env.development?
   99.times do |n|
@@ -32,7 +36,8 @@ if Rails.env.development?
   5.times do |n|
     users.each do |user|
       name = "テストデータ#{n+1} by #{user.name}"
-      user.experiments.create!(name: name, deadline: n.day.after)
+      experiment = user.experiments.create!(name: name, deadline: n.day.after)
+      experiment.timetables.create!(start_at: 1.week.after)
     end
   end
 end

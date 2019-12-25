@@ -20,3 +20,5 @@ table.table.table-hover
   = link_to '削除', @experiment, method: :delete,
             data: { confirm: "「#{@experiment.name}」を削除します。よろしいですか?"},
             class: 'btn btn-danger'
+- else
+  = link_to '参加申込み', new_experiment_subject_path(@experiment), class: 'btn btn-primary'

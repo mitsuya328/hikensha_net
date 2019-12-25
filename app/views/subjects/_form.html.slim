@@ -1,0 +1,23 @@
+= form_for(@subject, url: path) do |f|
+  = render 'shared/error_messages', object: f.object
+  .form-group
+    = f.label :timetable_id
+    = f.select :timetable_id, (1..10), class: 'form-control'
+  .form-group
+    = f.label :email
+    = f.email_field :email, class: 'form-control'
+  .form-group
+    = f.label :sex
+    = f.select :sex, [['', '0'],['男性', '1'], ['女性', '2'], ['その他', '9']], class: 'form-control'
+  .form-group
+    = f.label :birth_date
+    = f.date_select(:birth_date,
+                    start_year: 1930,
+                    end_year: (Time.now.year),
+                    default: Date.new(2000, 1, 1),
+                    class: 'form-control')
+  .form-group
+    = f.label :note
+    = f.text_field :note, class: 'form-control'
+
+  = f.submit nil, class: "btn btn-primary"

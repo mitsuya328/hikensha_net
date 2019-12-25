@@ -11,7 +11,7 @@ class ExperimentsController < ApplicationController
   end
 
   def create
-    @experiment = Experiment.new(experiment_params)
+    @experiment = Experiment.new(experiment_params) #issue user.experiments.new...
     @experiment.user = current_user
     if @experiment.save
       flash[:success] = "実験を登録しました"
@@ -22,11 +22,11 @@ class ExperimentsController < ApplicationController
   end
 
   def edit
-    @experiment = Experiment.find(params[:id])
+    @experiment = Experiment.find(params[:id]) #issue correct user
   end
 
   def update
-    @experiment = Experiment.find(params[:id])
+    @experiment = Experiment.find(params[:id]) #issue correct user
     if @experiment.update_attributes(experiment_params)
       flash[:success] = "実験内容を更新しました"
       redirect_to @experiment
