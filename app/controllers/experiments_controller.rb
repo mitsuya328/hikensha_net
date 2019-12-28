@@ -8,10 +8,11 @@ class ExperimentsController < ApplicationController
 
   def new
     @experiment = Experiment.new
+    @experiment.timetables.build
   end
 
   def create
-    @experiment = Experiment.new(experiment_params) #issue user.experiments.new...
+    @experiment = Experiment.new(experiment_params)
     @experiment.user = current_user
     if @experiment.save
       flash[:success] = "実験を登録しました"

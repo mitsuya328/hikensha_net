@@ -6,7 +6,7 @@ RSpec.describe "SubjectsCreate", type: :request do
   let(:timetable){ FactoryBot.create(:timetable, experiment: experiment) }
 
   it "invalid subject information" do
-    get new_experiment_path(experiment)
+    get new_experiment_subject_path(experiment)
     expect{
       post experiment_subjects_path(experiment), params: { subject: { email: "",
                                                           sex: '1',
@@ -17,7 +17,7 @@ RSpec.describe "SubjectsCreate", type: :request do
   end
 
   it "valid subject information" do
-    get new_experiment_path(experiment)
+    get new_experiment_subject_path(experiment)
     expect{
       post experiment_subjects_path(experiment), params: { subject: { email: "subject@example.com",
                                                           sex: '1',

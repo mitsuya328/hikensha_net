@@ -14,11 +14,11 @@
       = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' 
   br
 
-  = f.fields_for :timetables do |t|
-    = t.hidden_field :id
-    = t.label :start_at
-    = t.datetime_select :start_at
-    br
+  #timetables
+    = f.fields_for :timetables do |timetable|
+      = render 'timetable_fields', f: timetable
+    .links
+      = link_to_add_association '追加', f, :timetables
 
   = f.submit nil, class: "btn btn-primary"
   

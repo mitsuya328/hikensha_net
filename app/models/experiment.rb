@@ -11,7 +11,7 @@ class Experiment < ApplicationRecord
 
   REGISTRABLE_ATTRIBUTES = %i(name description deadline picture)
 
-  after_initialize { timetables.build unless self.persisted? || timetables.present? }
+  #after_initialize { timetables.build unless self.persisted? || timetables.present? }
 
   private
 
