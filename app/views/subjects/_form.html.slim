@@ -2,7 +2,7 @@
   = render 'shared/error_messages', object: f.object
   .form-group
     = f.label :timetable_id
-    = f.select :timetable_id, (1..10), class: 'form-control'
+    = f.collection_select :timetable_id, @experiment.timetables, :id, :start_at, {}, class: 'form-control'
   .form-group
     = f.label :email
     = f.email_field :email, class: 'form-control'
@@ -14,7 +14,7 @@
     = f.date_select(:birth_date,
                     start_year: 1930,
                     end_year: (Time.now.year),
-                    default: Date.new(2000, 1, 1),
+                    default: Date.new(1990, 1, 1),
                     class: 'form-control')
   .form-group
     = f.label :note

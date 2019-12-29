@@ -9,6 +9,9 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     models:
       user: ユーザー
+      experiment: 実験
+      timetable: 開始時刻
+      subject: 被験者
     attributes:
       user:
         name: 名前
