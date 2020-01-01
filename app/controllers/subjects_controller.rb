@@ -12,8 +12,8 @@ class SubjectsController < ApplicationController
   end
 
   def create
-    @subject = Subject.new(subject_params) # issue timetable_idが@experimentに属さない場合エラーにする
-    if @subject.save && @subject.experiment == @experiment
+    @subject = Subject.new(subject_params)
+    if @subject.experiment == @experiment && @subject.save
       flash[:success] = "実験への参加申し込みを受け付けました。ご協力ありがとうございます。"
       redirect_to @experiment
     else

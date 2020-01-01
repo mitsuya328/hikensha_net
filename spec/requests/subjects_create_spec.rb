@@ -16,15 +16,22 @@ RSpec.describe "SubjectsCreate", type: :request do
     expect(response).to render_template 'subjects/new'
   end
 
-  it "valid subject information" do
+  it "valid subject information and limited number of subjects" do
     get new_experiment_subject_path(experiment)
     expect{
       post experiment_subjects_path(experiment), params: { subject: { email: "subject@example.com",
-                                                          sex: '1',
+                                                          sex: '',
                                                           birth_date: 20.year.ago,
                                                           timetable_id: timetable.id } }
     }.to change { Subject.count }.by(1)
     expect(response).to redirect_to experiment
+    expect{
+      post experiment_subjects_path(experiment), params: { subject: { email: "subject2@example.com",
+                                                          sex: '',
+                                                          birth_date: 20.year.ago,
+                                                          timetable_id: timetable.id } }
+    }.not_to change { Subject.count }
+    expect(response).to render_template 'subjects/new'
   end
 
   describe "when logged in as experimenter" do

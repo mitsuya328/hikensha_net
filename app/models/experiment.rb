@@ -8,12 +8,14 @@ class Experiment < ApplicationRecord
   validate :picture_size
 
   accepts_nested_attributes_for :timetables, allow_destroy: true
-
+  
   REGISTRABLE_ATTRIBUTES = %i(name description deadline picture)
 
-  #after_initialize { timetables.build unless self.persisted? || timetables.present? }
-
-  private
+  def selectable_timetables
+    timetables.select{ |timetable| timetable.subjects.count < timetable.number_of_subjects }
+  end
+    
+    private
 
     # アップロードされた画像のサイズをバリデーションする
     def picture_size

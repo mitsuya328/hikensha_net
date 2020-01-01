@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_19_103827) do
+ActiveRecord::Schema.define(version: 2019_12_31_095919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_12_19_103827) do
     t.bigint "experiment_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "number_of_subjects"
     t.index ["experiment_id", "start_at"], name: "index_timetables_on_experiment_id_and_start_at"
     t.index ["experiment_id"], name: "index_timetables_on_experiment_id"
   end
