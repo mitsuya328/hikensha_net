@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(name:  "Admin User",
-             email: "admin@hikensha.net",
-             password:              "password",
-             password_confirmation: "password",
+             email: ENV['ADMIN_EMAIL'],
+             password:              ENV['ADMIN_PASSWORD'],
+             password_confirmation: ENV['ADMIN_PASSWORD'],
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
@@ -17,6 +17,14 @@ User.first.experiments.create!(name: "テストデータ", deadline: 1.years.aft
 3.times do |n|
   Experiment.first.timetables.create!(start_at: n.week.after, number_of_subjects: 3)
 end
+
+User.create!(name:  "Test User",
+             email: "test@hikensha.net",
+             password:              "password",
+             password_confirmation: "password",
+             admin: false,
+             activated: true,
+             activated_at: Time.zone.now)
 
 if Rails.env.development?
   30.times do |n|

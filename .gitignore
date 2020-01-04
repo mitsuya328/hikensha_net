@@ -32,3 +32,6 @@ yarn-debug.log*
 
 # アップロードされたテスト画像を無視する
 /public/uploads
+
+# 環境変数の設定ファイルを無視する
+/.env

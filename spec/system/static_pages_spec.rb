@@ -18,7 +18,7 @@ RSpec.describe "StaticPages", type: :system do
 
   it "should get about" do
     visit about_path
-    expect(page).to have_title full_title("About")
+    expect(page).to have_title full_title("被験者ネットについて")
   end
 
   it "should get contact" do
