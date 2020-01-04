@@ -23,6 +23,7 @@ ja:
         description: 説明
         deadline: 応募締め切り
         picture: 画像
+        number_of_subjects: 1回あたりの最大被験者数
       timetable:
         start_at: 開始時刻
       subject:

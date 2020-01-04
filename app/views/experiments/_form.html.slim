@@ -14,6 +14,9 @@
       = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' 
   br
 
+  = f.label :number_of_subjects
+  = f.select :number_of_subjects, (1..99)
+
   #timetables
     = f.fields_for :timetables do |timetable|
       = render 'timetable_fields', f: timetable

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Timetable, type: :model do
   let(:user) { FactoryBot.create(:user) }
   let(:experiment){ FactoryBot.create(:experiment, user: user) }
-  let(:timetabele){ experiment.timetables.new(start_at: 1.day.after) }
+  let(:timetabele){ experiment.timetables.new(start_at: 1.day.after, number_of_subjects: 1) }
 
   it "should be valid" do
     expect(timetabele).to be_valid

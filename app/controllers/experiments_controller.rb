@@ -14,6 +14,9 @@ class ExperimentsController < ApplicationController
   def create
     @experiment = Experiment.new(experiment_params)
     @experiment.user = current_user
+    @experiment.timetables.each do |timetable|
+      timetable.number_of_subjects = @experiment.number_of_subjects
+    end
     if @experiment.save
       flash[:success] = "実験を登録しました"
       redirect_to @experiment
@@ -23,11 +26,12 @@ class ExperimentsController < ApplicationController
   end
 
   def edit
-    @experiment = Experiment.find(params[:id]) #issue correct user
+    @experiment = Experiment.find(params[:id])
+    @experiment.number_of_subjects = @experiment.timetables.first.number_of_subjects if @experiment.timetables.any?
   end
 
   def update
-    @experiment = Experiment.find(params[:id]) #issue correct user
+    @experiment = Experiment.find(params[:id])
     if @experiment.update_attributes(experiment_params)
       flash[:success] = "実験内容を更新しました"
       redirect_to @experiment
@@ -45,7 +49,6 @@ class ExperimentsController < ApplicationController
   private
 
     def experiment_params
-      #params.require(:experiment).permit(:name, :description, :deadline, :picture)
       params
       .require(:experiment)
       .permit(
