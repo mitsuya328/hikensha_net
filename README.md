@@ -1,24 +1,27 @@
-# README
+# 被験者ネット
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+被験者ネットは作者がRuby on Railsの学習のために作成したアプリケーションで、
+心理学などの実験の被験者を募集するためのサービスです。
+[被験者ネット](https://hikensha-net.herokuapp.com/)
 
-Things you may want to cover:
+## 主な開発環境
 
-* Ruby version
+* Ruby on Rails 6.0.1
 
-* System dependencies
+* Ruby 2.6.5
 
-* Configuration
+* RSpec 3.9
 
-* Database creation
+## 主な機能
 
-* Database initialization
+* ユーザー登録とメールアドレスの認証
 
-* How to run the test suite
+* ログイン機能
 
-* Services (job queues, cache servers, search engines, etc.)
+* 実験と任意の数の開始時刻の作成、編集、閲覧、削除
 
-* Deployment instructions
+* 被験者としての実験への参加申し込み
 
-* ...
+* 開始時刻毎の被験者数の上限の設定
+
+* 被験者の一覧表示

@@ -1,6 +1,8 @@
 - provide(:title, "ログイン")
 h1 ログイン
 
+p テストユーザー (メールアドレス: test@hikensha.net, パスワード: password)
+
 = form_for(:session, url: login_path) do |f|
   .form-group
     = f.label :email, "メールアドレス"
