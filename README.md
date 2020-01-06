@@ -1,8 +1,8 @@
-# 被験者ネット
+# [被験者ネット](https://hikensha-net.herokuapp.com/)
 
 被験者ネットは作者がRuby on Railsの学習のために作成したアプリケーションで、
 心理学などの実験の被験者を募集するためのサービスです。
-[被験者ネット](https://hikensha-net.herokuapp.com/)
+
 
 ## 主な開発環境
 
