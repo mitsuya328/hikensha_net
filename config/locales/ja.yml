@@ -28,8 +28,10 @@ ja:
         start_at: 開始時刻
       subject:
         timetable_id: 開始時刻
+        start_at: 開始時刻
         email: メールアドレス
         sex: 性別
+        gender: 性別
         birth_date: 生年月日
         note: 備考
   date:

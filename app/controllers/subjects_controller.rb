@@ -5,6 +5,11 @@ class SubjectsController < ApplicationController
   
   def index
     @subjects = @experiment.subjects.order(timetable_id: :desc)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @subjects.generate_csv, filename: "#{@experiment.name}の被験者一覧.csv"}
+    end
   end
 
   def new

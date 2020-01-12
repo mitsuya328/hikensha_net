@@ -6,15 +6,17 @@ table.table.table-hover
   thead.thead-default
     tr
       th= "No."
-      th= Timetable.human_attribute_name(:start_at)
+      th= Subject.human_attribute_name(:start_at)
       th= Subject.human_attribute_name(:email)
-      th= Subject.human_attribute_name(:sex)
+      th= Subject.human_attribute_name(:gender)
       th= Subject.human_attribute_name(:birth_date)
   tbody
     - @subjects.zip(1..100) do |subject, i|
       tr
         td= i
-        td= subject.timetable.start_at
+        td= subject.start_at
         td= subject.email
-        td= subject.sex
+        td= subject.gender
         td= subject.birth_date
+
+= link_to 'エクスポート', experiment_subjects_path(format: :csv), class: 'btn btn-primary mb-3'

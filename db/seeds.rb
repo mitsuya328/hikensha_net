@@ -6,23 +6,30 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(name:  "Admin User",
-             email: ENV['ADMIN_EMAIL'],
-             password:              ENV['ADMIN_PASSWORD'],
-             password_confirmation: ENV['ADMIN_PASSWORD'],
-             admin: true,
-             activated: true,
-             activated_at: Time.zone.now)
-User.first.experiments.create!(name: "テストデータ", deadline: 1.years.after)
-3.times do |n|
-  Experiment.first.timetables.create!(start_at: n.week.after, number_of_subjects: 3)
-end
-
+# テストユーザー
 User.create!(name:  "Test User",
              email: "test@hikensha.net",
              password:              "password",
              password_confirmation: "password",
              admin: false,
+             activated: true,
+             activated_at: Time.zone.now)
+
+# テストユーザーの実験
+User.first.experiments.create!(name: "テストデータ", deadline: 1.years.after)
+3.times do |n|
+  Experiment.first.timetables.create!(start_at: n.week.after, number_of_subjects: 3)
+end
+
+Timetable.first.subjects.create!(email: "subject@hikensha.net",
+                                sex: '1',
+                                birth_date: 20.years.ago)
+
+User.create!(name:  "Admin User",
+             email: ENV['ADMIN_EMAIL'],
+             password:              ENV['ADMIN_PASSWORD'],
+             password_confirmation: ENV['ADMIN_PASSWORD'],
+             admin: true,
              activated: true,
              activated_at: Time.zone.now)
 
