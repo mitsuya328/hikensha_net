@@ -18,7 +18,7 @@ RSpec.describe UserMailer, type: :mailer do
     it "should have correct content" do
       expect(mail.subject).to eq "メールアドレスのご確認"
       expect(mail.to).to eq [user.email]
-      expect(mail.from).to eq ["noreply@example.com"]
+      expect(mail.from).to eq ["noreply@hikensha.net"]
 
       expect(text_body).to match user.name
       expect(text_body).to match user.activation_token
@@ -37,7 +37,7 @@ RSpec.describe UserMailer, type: :mailer do
     it "should have correct content" do
       expect(mail.subject).to eq "パスワードの再設定"
       expect(mail.to).to eq [user.email]
-      expect(mail.from).to eq ["noreply@example.com"]
+      expect(mail.from).to eq ["noreply@hikensha.net"]
 
       expect(text_body).to match user.reset_token
       expect(text_body).to match CGI.escape(user.email)
