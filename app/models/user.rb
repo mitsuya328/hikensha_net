@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_many :experiments, dependent: :destroy
-  has_many :experiment_forms
   attr_accessor :remember_token, :activation_token, :reset_token, :experiment_forms
   before_save   :downcase_email
   before_create :create_activation_digest
