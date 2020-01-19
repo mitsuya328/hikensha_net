@@ -1,2 +1,4 @@
-li[id="experiment-#{experiment.id}"]
-  span.name = link_to experiment.name, experiment
+tr[id="experiment-#{experiment.id}"]
+  td= link_to experiment.name, experiment
+  td= experiment.location
+  td= experiment.deadline

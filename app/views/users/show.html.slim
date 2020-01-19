@@ -5,6 +5,4 @@ div.row
       h1 = @user.name
   div.col-md-8
     - if @user.experiments.any?
-      ul.experiments
-        = render @experiments
-      = will_paginate @experiments
+      = render partial: 'experiments/experiments_table', locals: { experiments: @experiments }

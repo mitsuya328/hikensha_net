@@ -11,7 +11,7 @@ RSpec.describe "UsersIndex", type: :system do
     it "index including pagination" do
       log_in_as(user)
       visit users_path
-      expect(page).to have_selector 'div.pagination', count: 2
+      expect(page).to have_selector 'ul.pagination', count: 2
       User.paginate(page: 1).each do |user|
         expect(page).to have_link user.name, href: user_path(user)
       end

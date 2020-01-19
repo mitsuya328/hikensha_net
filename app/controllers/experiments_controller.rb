@@ -2,6 +2,10 @@ class ExperimentsController < ApplicationController
   before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update, :destroy]
 
+  def index
+    @experiments = Experiment.order(deadline: :asc).paginate(page: params[:page])
+  end
+
   def show
     @experiment = Experiment.find(params[:id])
   end

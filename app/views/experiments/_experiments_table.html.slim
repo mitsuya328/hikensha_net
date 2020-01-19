@@ -1,0 +1,8 @@
+table.table.table-hover
+    thread.thread-default
+      tr
+        th= Experiment.human_attribute_name(:name)
+        th= Experiment.human_attribute_name(:location)
+        th= Experiment.human_attribute_name(:deadline)
+    tbody
+      = render experiments

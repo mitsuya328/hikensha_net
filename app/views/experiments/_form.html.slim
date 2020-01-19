@@ -1,14 +1,24 @@
 = form_for(@experiment, url: path, html: {method: method}) do |f|
   = render 'shared/error_messages', object: @experiment
 
-  = f.label :name
-  = f.text_field :name, class: 'form-control'
-
-  = f.label :description
-  = f.text_area :description, class: 'form-control'
-
-  = f.label :deadline
-  = f.text_field :deadline, class: 'date-picker form-control'
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
+  .form-group
+    = f.label :deadline
+    = f.text_field :deadline, class: 'date-picker form-control'
+  .form-group
+    = f.label :location
+    = f.text_field :location, class: 'form-control'
+  .form-group
+    = f.label :reward
+    = f.select :reward, [['', '0'],['現金', '1'], ['商品券', '2'], ['粗品', '9']], class: 'form-control'
+  .form-group
+    = f.text_field :amount_of_reward
+    = f.label :amount_of_reward
 
   span.picture
       = f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' 

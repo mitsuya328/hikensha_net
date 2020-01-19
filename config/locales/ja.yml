@@ -24,6 +24,9 @@ ja:
         deadline: 応募締め切り
         picture: 画像
         number_of_subjects: 1回あたりの最大被験者数
+        location: 実施場所
+        reward: 謝礼
+        amount_of_reward: 円相当
       timetable:
         start_at: 開始時刻
       subject:

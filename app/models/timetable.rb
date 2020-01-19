@@ -1,7 +1,7 @@
 class Timetable < ApplicationRecord
   belongs_to :experiment
   has_many :subjects, dependent: :destroy
-  validates :experiment_id, presence: true
+  #validates :experiment_id, presence: true
   validates :start_at, presence: true
   validates :number_of_subjects, presence: true
 

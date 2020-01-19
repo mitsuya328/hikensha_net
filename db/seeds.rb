@@ -16,7 +16,11 @@ User.create!(name:  "Test User",
              activated_at: Time.zone.now)
 
 # テストユーザーの実験
-User.first.experiments.create!(name: "テストデータ", deadline: 1.years.after)
+User.first.experiments.create!(name: "【サンプル】心理実験被験者募集",
+                               deadline: 1.years.after,
+                               description: 'こちらはサンプルです。申し込みを行っても実験に参加することはできません',
+                               location: '東京都',
+                               reward: '0')
 3.times do |n|
   Experiment.first.timetables.create!(start_at: n.week.after, number_of_subjects: 3)
 end
@@ -46,10 +50,10 @@ if Rails.env.development?
                 activated_at: Time.zone.now)
   end
 
-  users = User.order(:created_at).take(2)
+  users = User.order(:created_at).take(10)
   3.times do |n|
     users.each do |user|
-      name = "テストデータ#{n+1} by #{user.name}"
+      name = "実験#{n+1} by #{user.name}"
       experiment = user.experiments.create!(name: name, deadline: n.day.after)
       3.times do |j|
         experiment.timetables.create!(start_at: j.week.after, number_of_subjects: 3)

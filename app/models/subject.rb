@@ -3,7 +3,7 @@ class Subject < ApplicationRecord
   has_one :experiment, through: :timetable
   validates :timetable_id, presence: true
   validates :email, presence: true
-  validate :number_of_subjects
+  validate :selectable_timetable
 
   def start_at
     timetable.start_at
@@ -22,11 +22,11 @@ class Subject < ApplicationRecord
     end
   end
   
-  def Subject.csv_attributes
+  def self.csv_attributes
     ["start_at", "email", "gender", "birth_date"]
   end
 
-  def Subject.generate_csv
+  def self.generate_csv
     CSV.generate(headers: true) do |csv|
       csv << csv_attributes
       all.each do |subject|
@@ -36,7 +36,7 @@ class Subject < ApplicationRecord
   end
 
   private
-    def number_of_subjects
+    def selectable_timetable
       unless timetable.subjects.count < timetable.number_of_subjects
         errors[:base] << "その時間の実験は既に満席です"
       end

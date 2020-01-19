@@ -15,6 +15,16 @@ table.table.table-hover
     tr
       th = Experiment.human_attribute_name(:deadline)
       td = @experiment.deadline
+    tr
+      th = Experiment.human_attribute_name(:location)
+      td = @experiment.location
+    tr
+      th = Experiment.human_attribute_name(:reward)
+      -if @experiment.amount_of_reward.nil?
+        td = @experiment.reward_type
+      -else
+        td = "#{@experiment.reward_type} #{@experiment.amount_of_reward}円分"
+
 - if current_user == @experiment.user
   = link_to '被験者一覧', experiment_subjects_path(@experiment), class: 'btn btn-info mr-3'
   = link_to '編集', edit_experiment_path, class: 'btn btn-primary mr-3'

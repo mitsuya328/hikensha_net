@@ -1,0 +1,8 @@
+- provide(:title, '実験一覧')
+h1 実験一覧
+
+= will_paginate
+
+= render partial: 'experiments_table', locals: { experiments: @experiments }
+
+= will_paginate

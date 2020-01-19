@@ -10,10 +10,23 @@ class Experiment < ApplicationRecord
 
   accepts_nested_attributes_for :timetables, allow_destroy: true
   
-  REGISTRABLE_ATTRIBUTES = %i(name description deadline picture number_of_subjects)
+  REGISTRABLE_ATTRIBUTES = %i(name description deadline picture number_of_subjects location reward amount_of_reward)
 
   def selectable_timetables
     timetables.select{ |timetable| timetable.subjects.count < timetable.number_of_subjects }
+  end
+
+  def reward_type
+    case reward
+    when '0' then
+      return ""
+    when '1' then
+      return "現金"
+    when '2' then
+      return "商品券"
+    else
+      return "粗品"
+    end
   end
     
     private
