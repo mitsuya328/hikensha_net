@@ -56,8 +56,8 @@ class ExperimentsController < ApplicationController
       params
       .require(:experiment)
       .permit(
-        Experiment::REGISTRABLE_ATTRIBUTES +
-        [timetables_attributes: Timetable::REGISTRABLE_ATTRIBUTES]
+        *Experiment::REGISTRABLE_ATTRIBUTES,
+        timetables_attributes: Timetable::REGISTRABLE_ATTRIBUTES
       )
     end
 
