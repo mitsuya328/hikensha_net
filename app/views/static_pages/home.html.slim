@@ -21,8 +21,8 @@ p
       = render @feed_experiments
 h2 締め切りが近い実験
 - if @imminent_experiments.any?
-  = render partial: 'experiments/experiments_table', locals: { experiments: @imminent_experiments }
+  = render 'experiments/experiments_table', experiments: @imminent_experiments
 h2 新着の実験
 - if @recent_experiments.any?
-  = render partial: 'experiments/experiments_table', locals: { experiments: @recent_experiments }
+  = render 'experiments/experiments_table', experiments: @recent_experiments
   = link_to ">>すべて見る", experiments_path

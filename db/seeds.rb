@@ -29,6 +29,7 @@ Timetable.first.subjects.create!(email: "subject@hikensha.net",
                                 sex: '1',
                                 birth_date: 20.years.ago)
 
+# 管理ユーザー
 User.create!(name:  "Admin User",
              email: ENV['ADMIN_EMAIL'],
              password:              ENV['ADMIN_PASSWORD'],

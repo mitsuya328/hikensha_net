@@ -1,8 +1,8 @@
 - provide(:title, @user.name)
-div.row
-  aside.col-md-4
-    section.user_info
-      h1 = @user.name
-  div.col-md-8
-    - if @user.experiments.any?
-      = render partial: 'experiments/experiments_table', locals: { experiments: @experiments }
+
+h1 = @user.name
+
+
+- if @user.experiments.any?
+  h2 実施予定の実験
+  = render 'experiments/experiments_table', experiments: @experiments

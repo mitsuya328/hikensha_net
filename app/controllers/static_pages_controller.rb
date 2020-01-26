@@ -7,15 +7,11 @@ class StaticPagesController < ApplicationController
     @imminent_experiments = Experiment.order(deadline: :asc).take(5)
   end
 
-  def help
-  end
+  def help; end
 
-  def about
-  end
+  def about; end
 
-  def contact
-  end
+  def contact; end
 
-  def news
-  end
+  def news; end
 end

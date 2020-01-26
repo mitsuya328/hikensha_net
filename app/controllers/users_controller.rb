@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:edit, :update, :destroy]
-  before_action :admin_user,     only: :index
+  before_action :logged_in_user, only: %i(index edit update destroy)
+  before_action :correct_user,   only: %i(edit update destroy)
+  before_action :check_admin,     only: :index
 
   def index
     @users = User.paginate(page: params[:page])
@@ -18,38 +18,37 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    #debugger
     if @user.save
       @user.send_activation_email
-      flash[:info] = "認証メールを送信しました。メールアドレスを確認してください"
-      redirect_to root_url
+      #flash[:info] = "認証メールを送信しました。メールアドレスを確認してください"
+      redirect_to root_url, info: "認証メールを送信しました。メールアドレスを確認してください"
     else
       render 'new'
     end
   end
 
   def edit
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
+    #@user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = "ユーザー情報を更新しました"
-      redirect_to @user
+      #flash[:success] = "ユーザー情報を更新しました"
+      redirect_to @user, success: "ユーザー情報を更新しました"
     else
       render 'edit'
     end
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    #User.find(params[:id]).destroy
+    @user.destroy
     if current_user.admin?
-      redirect_to users_url
+      redirect_to users_url, success: "ユーザーを削除しました。"
     else
-      flash[:success] = "退会が完了しました。ご利用ありがとうございました。"
-      redirect_to root_url
+      #flash[:success] = "退会が完了しました。ご利用ありがとうございました。"
+      redirect_to root_url, success: "退会が完了しました。ご利用ありがとうございました。"
     end
   end
 
@@ -69,7 +68,7 @@ class UsersController < ApplicationController
     end
 
     # 管理者かどうか確認
-    def admin_user
+    def check_admin
       redirect_to(root_url) unless current_user.admin?
     end
 end

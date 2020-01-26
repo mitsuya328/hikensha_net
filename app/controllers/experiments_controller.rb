@@ -1,6 +1,6 @@
 class ExperimentsController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:edit, :update, :destroy]
+  before_action :logged_in_user, only: %i(new create edit update destroy)
+  before_action :correct_user,   only: %i(edit update destroy)
 
   def index
     @experiments = Experiment.order(deadline: :asc).paginate(page: params[:page])
@@ -22,23 +22,23 @@ class ExperimentsController < ApplicationController
       timetable.number_of_subjects = @experiment.number_of_subjects
     end
     if @experiment.save
-      flash[:success] = "実験を登録しました"
-      redirect_to @experiment
+      #flash[:success] = "実験を登録しました"
+      redirect_to @experiment, success: "実験を登録しました"
     else
       render 'new'
     end
   end
 
   def edit
-    @experiment = Experiment.find(params[:id])
+    #@experiment = Experiment.find(params[:id])
     @experiment.number_of_subjects = @experiment.timetables.first.number_of_subjects if @experiment.timetables.any?
   end
 
   def update
-    @experiment = Experiment.find(params[:id])
+    #@experiment = Experiment.find(params[:id])
     if @experiment.update_attributes(experiment_params)
-      flash[:success] = "実験内容を更新しました"
-      redirect_to @experiment
+      #flash[:success] = "実験内容を更新しました"
+      redirect_to @experiment, success: "実験内容を更新しました"
     else
       render 'edit'
     end
@@ -46,8 +46,8 @@ class ExperimentsController < ApplicationController
 
   def destroy
     @experiment.destroy
-    flash[:success] = "「#{@experiment.name}」を削除しました。"
-    redirect_to root_path
+    #flash[:success] = "「#{@experiment.name}」を削除しました。"
+    redirect_to root_path, success: "「#{@experiment.name}」を削除しました。"
   end
 
   private
