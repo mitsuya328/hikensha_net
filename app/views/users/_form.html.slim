@@ -12,5 +12,15 @@
   .form-group
     = f.label :password_confirmation
     = f.password_field :password_confirmation, class: 'form-control'
+  .form-group
+    = f.label :sex
+    = f.select :sex, [['', '0'],['男性', '1'], ['女性', '2'], ['その他', '9']], class: 'form-control'
+  .form-group
+    = f.label :birth_date
+    = f.date_select(:birth_date,
+                    start_year: 1930,
+                    end_year: (Time.now.year),
+                    default: Date.new(1990, 1, 1),
+                    class: 'form-control')
 
   = f.submit nil, class: "btn btn-primary"

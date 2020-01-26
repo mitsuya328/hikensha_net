@@ -13,7 +13,13 @@ class SubjectsController < ApplicationController
   end
 
   def new
-    @subject = Subject.new
+    if logged_in?
+      @subject = Subject.new(
+        email: current_user.email, sex: current_user.sex, birth_date: current_user.birth_date
+      )
+    else
+      @subject = Subject.new
+    end
   end
 
   def create
