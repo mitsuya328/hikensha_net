@@ -36,7 +36,7 @@ class ExperimentsController < ApplicationController
 
   def update
     #@experiment = Experiment.find(params[:id])
-    if @experiment.update_attributes(experiment_params)
+    if @experiment.update(experiment_params)
       #flash[:success] = "実験内容を更新しました"
       redirect_to @experiment, success: "実験内容を更新しました"
     else

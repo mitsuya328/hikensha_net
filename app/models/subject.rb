@@ -38,7 +38,8 @@ class Subject < ApplicationRecord
 
   private
     def timetable_is_selectable
-      unless timetable.subjects.count < timetable.number_of_subjects
+      #unless timetable.subjects.count < timetable.number_of_subjects
+      unless timetable.selectable?
         errors[:base] << "その時間の実験は既に満席です"
       end
     end

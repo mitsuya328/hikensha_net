@@ -25,6 +25,9 @@ class SubjectsController < ApplicationController
   def create
     @subject = Subject.new(subject_params)
     if @subject.experiment == @experiment && @subject.save
+      if logged_in? && !@experiment.user.examinees.include?(current_user)
+        @experiment.user.examinees << current_user
+      end
       #flash[:success] = "実験への参加申し込みを受け付けました。ご協力ありがとうございます。"
       redirect_to @experiment, success: "実験への参加申込を受け付けました。ご協力ありがとうございます。"
     else

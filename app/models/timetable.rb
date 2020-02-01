@@ -6,4 +6,8 @@ class Timetable < ApplicationRecord
   validates :number_of_subjects, presence: true
 
   REGISTRABLE_ATTRIBUTES = %i(id start_at _destroy)
+
+  def selectable?
+    subjects.count < number_of_subjects
+  end
 end

@@ -13,7 +13,8 @@ class Experiment < ApplicationRecord
   REGISTRABLE_ATTRIBUTES = %i(name description deadline picture number_of_subjects location reward amount_of_reward)
 
   def selectable_timetables
-    timetables.select{ |timetable| timetable.subjects.count < timetable.number_of_subjects }
+    #timetables.select{ |timetable| timetable.subjects.count < timetable.number_of_subjects }
+    timetables.select{ |timetable| timetable.selectable? }
   end
 
   def reward_type
@@ -34,7 +35,7 @@ class Experiment < ApplicationRecord
     # アップロードされた画像のサイズをバリデーションする
     def picture_size
       if picture.size > 5.megabytes
-        errors.add(:picture, "should be less than 5MB")
+        errors.add(:picture, "のサイズを5MB以下にしてください")
       end
     end
 end

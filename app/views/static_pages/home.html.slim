@@ -14,11 +14,10 @@ p
   p
     | メールアドレス: test@hikensha.net  パスワード: password
 
-- if logged_in? && false #一時保留
+- if logged_in?
   h2 実験に参加してくれた人の実験
-  - if @feed_experiments.any?
-    ul.experiments
-      = render @feed_experiments
+  - if @recommend_experiments.any?
+    = render 'experiments/experiments_table', experiments: @recommend_experiments
 h2 締め切りが近い実験
 - if @imminent_experiments.any?
   = render 'experiments/experiments_table', experiments: @imminent_experiments

@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :experiments, dependent: :destroy
+  has_many :relationships, foreign_key: "examiner_id", dependent: :destroy
+  has_many :examinees, through: :relationships
   attr_accessor :remember_token, :activation_token, :reset_token, :experiment_forms
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -69,9 +71,11 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
 
-  # 試作feedの定義
-  def feed
-    Experiment.where("user_id = ?", id)
+  # 実験に参加してくれた人の実験
+  def recommend_experiments
+    examinee_ids = "SELECT examinee_id FROM relationships
+                    WHERE examiner_id = :user_id"
+    Experiment.where("user_id IN(#{examinee_ids})",user_id: id)
   end
 
   private
