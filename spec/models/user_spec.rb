@@ -77,4 +77,21 @@ RSpec.describe User, type: :model do
     experiment = user.experiments.create!(name: "experiment")
     expect{ user.destroy }.to change{ Experiment.count }.by(-1)
   end
+
+  context "recommend experiments" do
+    let!(:examinee) { FactoryBot.create(:user) }
+    let(:not_examinee) { FactoryBot.create(:user) }
+    let(:user_experiment){ FactoryBot.create(:experiment, user: user) }
+    let!(:examinee_experiment){ FactoryBot.create(:experiment, user: examinee) }
+    let(:not_examinee_experiment){ FactoryBot.create(:experiment, user: not_examinee) }
+
+    it "should have the right experiments" do
+      user.examinees << examinee
+      expect(user.examinees).to be_include(examinee)
+      expect(user.recommend_experiments).to be_include(examinee_experiment)
+      expect(user.recommend_experiments).not_to be_include(user_experiment)
+      expect(user.recommend_experiments).not_to be_include(not_examinee_experiment)
+    end
+  end
+
 end
