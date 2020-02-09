@@ -29,22 +29,26 @@ gem 'bcrypt', '~> 3.1.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+# フロント用
 gem 'sassc'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'bootstrap'
-
 gem 'jquery-ui-rails'
 
+# 画像アップロード
 gem 'carrierwave'
 gem 'mini_magick'
 
+# ページネーション
 gem 'will_paginate'
 gem 'will_paginate-bootstrap4'
 
+# 1対多のフォーム
 gem 'cocoon'
 
-gem 'dotenv-rails'
+# 検索機能
+gem 'ransack'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -62,6 +66,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'faker'
+  # 環境変数の設定
+  gem 'dotenv-rails'
 end
 
 group :test do

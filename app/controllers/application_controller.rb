@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   add_flash_types :success, :info, :warning, :danger
 
+  before_action :set_search
+  def set_search
+    @q = Experiment.ransack(params[:q])
+  end
+
   private
     # ログイン済みユーザーかどうか確認
     def logged_in_user
