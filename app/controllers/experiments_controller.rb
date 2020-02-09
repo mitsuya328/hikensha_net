@@ -3,7 +3,9 @@ class ExperimentsController < ApplicationController
   before_action :correct_user,   only: %i(edit update destroy)
 
   def index
-    @experiments = Experiment.order(deadline: :asc).paginate(page: params[:page])
+    # @experiments = Experiment.order(deadline: :asc).paginate(page: params[:page])
+    # @q = Experiment.ransack(params[:q])
+    @experiments = @q.result(distinct: true).order(deadline: :asc).paginate(page: params[:page])
   end
 
   def show

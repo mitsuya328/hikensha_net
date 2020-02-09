@@ -14,26 +14,26 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2020-02-01T23:53:38+09:00">2020-02-01T23:53:38+09:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2020-02-09T14:40:30+09:00">2020-02-09T14:40:30+09:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">88.64%</span></span>
+    (<span class="covered_percent"><span class="yellow">88.74%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         5.85
+         6.06
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>28</b> files in total.
-    <b>361</b> relevant lines. 
-    <span class="green"><b>320</b> lines covered</span> and
+    <b>364</b> relevant lines. 
+    <span class="green"><b>323</b> lines covered</span> and
     <span class="red"><b>41</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -83,17 +83,17 @@
       <tr>
         <td class="strong"><a href="#b9c241300a899cf3773aecf8f9c5827c9fdf5f97" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>14</td>
-        <td>8</td>
-        <td>8</td>
+        <td>19</td>
+        <td>11</td>
+        <td>11</td>
         <td>0</td>
-        <td>5.9</td>
+        <td>12.9</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#fc26ea277739ed57dd604c3fb33c465013df06c9" class="src_link" title="app/controllers/experiments_controller.rb">app/controllers/experiments_controller.rb</a></td>
         <td class="green strong">90.91 %</td>
-        <td>69</td>
+        <td>71</td>
         <td>33</td>
         <td>30</td>
         <td>3</td>
@@ -339,19 +339,19 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="green">92.66%</span></span>
+    (<span class="covered_percent"><span class="green">92.78%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.56
+         3.04
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>8</b> files in total.
-    <b>177</b> relevant lines. 
-    <span class="green"><b>164</b> lines covered</span> and
+    <b>180</b> relevant lines. 
+    <span class="green"><b>167</b> lines covered</span> and
     <span class="red"><b>13</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -381,17 +381,17 @@
       <tr>
         <td class="strong"><a href="#b9c241300a899cf3773aecf8f9c5827c9fdf5f97" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>14</td>
-        <td>8</td>
-        <td>8</td>
+        <td>19</td>
+        <td>11</td>
+        <td>11</td>
         <td>0</td>
-        <td>5.9</td>
+        <td>12.9</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#fc26ea277739ed57dd604c3fb33c465013df06c9" class="src_link" title="app/controllers/experiments_controller.rb">app/controllers/experiments_controller.rb</a></td>
         <td class="green strong">90.91 %</td>
-        <td>69</td>
+        <td>71</td>
         <td>33</td>
         <td>30</td>
         <td>3</td>
@@ -1122,8 +1122,8 @@
     <h3>app/controllers/application_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>8</b> relevant lines. 
-      <span class="green"><b>8</b> lines covered</span> and
+      <b>11</b> relevant lines. 
+      <span class="green"><b>11</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1158,58 +1158,88 @@
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
+          <code class="ruby">  before_action :set_search</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def set_search</code>
+        </li>
+      
+        <li class="covered" data-hits="93" data-linenumber="7">
+          <span class="hits">93</span>
+          
+          <code class="ruby">    @q = Experiment.ransack(params[:q])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby">    # ログイン済みユーザーかどうか確認</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="7">
+        <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
           <code class="ruby">    def logged_in_user</code>
         </li>
       
-        <li class="covered" data-hits="28" data-linenumber="8">
+        <li class="covered" data-hits="28" data-linenumber="13">
           <span class="hits">28</span>
           
           <code class="ruby">      unless logged_in?</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="9">
+        <li class="covered" data-hits="7" data-linenumber="14">
           <span class="hits">7</span>
           
           <code class="ruby">        store_location</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="never" data-hits="" data-linenumber="15">
           
           
           <code class="ruby">        #flash[:danger] = &quot;ログインしてください&quot;</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="11">
+        <li class="covered" data-hits="7" data-linenumber="16">
           <span class="hits">7</span>
           
           <code class="ruby">        redirect_to login_url, danger: &quot;ログインしてください&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby">end</code>
@@ -1264,292 +1294,292 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="6">
           
           
-          <code class="ruby">    @experiments = Experiment.order(deadline: :asc).paginate(page: params[:page])</code>
+          <code class="ruby">    # @experiments = Experiment.order(deadline: :asc).paginate(page: params[:page])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
           
           
+          <code class="ruby">    # @q = Experiment.ransack(params[:q])</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="8">
+          
+          
+          <code class="ruby">    @experiments = @q.result(distinct: true).order(deadline: :asc).paginate(page: params[:page])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="10">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
+        <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="10">
+        <li class="missed" data-hits="0" data-linenumber="12">
           
           
           <code class="ruby">    @experiment = Experiment.find(params[:id])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
+        <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
           <code class="ruby">  def new</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="14">
+        <li class="covered" data-hits="2" data-linenumber="16">
           <span class="hits">2</span>
           
           <code class="ruby">    @experiment = Experiment.new</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="15">
+        <li class="covered" data-hits="2" data-linenumber="17">
           <span class="hits">2</span>
           
           <code class="ruby">    @experiment.timetables.build</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="19">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="18">
+        <li class="covered" data-hits="1" data-linenumber="20">
           <span class="hits">1</span>
           
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="19">
+        <li class="covered" data-hits="2" data-linenumber="21">
           <span class="hits">2</span>
           
           <code class="ruby">    @experiment = Experiment.new(experiment_params)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="20">
+        <li class="covered" data-hits="2" data-linenumber="22">
           <span class="hits">2</span>
           
           <code class="ruby">    @experiment.user = current_user</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="21">
+        <li class="covered" data-hits="2" data-linenumber="23">
           <span class="hits">2</span>
           
           <code class="ruby">    @experiment.timetables.each do |timetable|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="22">
+        <li class="missed" data-hits="0" data-linenumber="24">
           
           
           <code class="ruby">      timetable.number_of_subjects = @experiment.number_of_subjects</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="24">
+        <li class="covered" data-hits="2" data-linenumber="26">
           <span class="hits">2</span>
           
           <code class="ruby">    if @experiment.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">      #flash[:success] = &quot;実験を登録しました&quot;</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="26">
+        <li class="covered" data-hits="1" data-linenumber="28">
           <span class="hits">1</span>
           
           <code class="ruby">      redirect_to @experiment, success: &quot;実験を登録しました&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="28">
+        <li class="covered" data-hits="1" data-linenumber="30">
           <span class="hits">1</span>
           
           <code class="ruby">      render &#39;new&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="31">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="30">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
           <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="31">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="32">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def edit</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">    #@experiment = Experiment.find(params[:id])</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="34">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
           
-          <code class="ruby">    @experiment.number_of_subjects = @experiment.timetables.first.number_of_subjects if @experiment.timetables.any?</code>
+          <code class="ruby">  def edit</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
           
           
+          <code class="ruby">    #@experiment = Experiment.find(params[:id])</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="36">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    @experiment.number_of_subjects = @experiment.timetables.first.number_of_subjects if @experiment.timetables.any?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
           <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="36">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="37">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def update</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="38">
           
           
-          <code class="ruby">    #@experiment = Experiment.find(params[:id])</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="39">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="1" data-linenumber="39">
+          <span class="hits">1</span>
           
-          <code class="ruby">    if @experiment.update(experiment_params)</code>
+          <code class="ruby">  def update</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="40">
           
           
-          <code class="ruby">      #flash[:success] = &quot;実験内容を更新しました&quot;</code>
+          <code class="ruby">    #@experiment = Experiment.find(params[:id])</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="41">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="41">
+          <span class="hits">2</span>
           
-          <code class="ruby">      redirect_to @experiment, success: &quot;実験内容を更新しました&quot;</code>
+          <code class="ruby">    if @experiment.update(experiment_params)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="42">
           
           
-          <code class="ruby">    else</code>
+          <code class="ruby">      #flash[:success] = &quot;実験内容を更新しました&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="43">
           <span class="hits">1</span>
           
-          <code class="ruby">      render &#39;edit&#39;</code>
+          <code class="ruby">      redirect_to @experiment, success: &quot;実験内容を更新しました&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">    else</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
+        <li class="covered" data-hits="1" data-linenumber="45">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">      render &#39;edit&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="46">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="47">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def destroy</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="48">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    @experiment.destroy</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby">    #flash[:success] = &quot;「#{@experiment.name}」を削除しました。&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="50">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    redirect_to root_path, success: &quot;「#{@experiment.name}」を削除しました。&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="51">
+        <li class="never" data-hits="" data-linenumber="47">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="52">
+        <li class="never" data-hits="" data-linenumber="48">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="53">
+        <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
-          <code class="ruby">  private</code>
+          <code class="ruby">  def destroy</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="50">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    @experiment.destroy</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby">    #flash[:success] = &quot;「#{@experiment.name}」を削除しました。&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    redirect_to root_path, success: &quot;「#{@experiment.name}」を削除しました。&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="54">
@@ -1561,88 +1591,100 @@
         <li class="covered" data-hits="1" data-linenumber="55">
           <span class="hits">1</span>
           
-          <code class="ruby">    def experiment_params</code>
+          <code class="ruby">  private</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="56">
-          <span class="hits">4</span>
-          
-          <code class="ruby">      params</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="57">
-          
-          
-          <code class="ruby">      .require(:experiment)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="58">
-          
-          
-          <code class="ruby">      .permit(</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="59">
-          
-          
-          <code class="ruby">        *Experiment::REGISTRABLE_ATTRIBUTES,</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="60">
-          
-          
-          <code class="ruby">        timetables_attributes: Timetable::REGISTRABLE_ATTRIBUTES</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="61">
-          
-          
-          <code class="ruby">      )</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="never" data-hits="" data-linenumber="56">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="64">
-          
-          
-          <code class="ruby">    # 正しいユーザーかどうか確認</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="65">
+        <li class="covered" data-hits="1" data-linenumber="57">
           <span class="hits">1</span>
           
-          <code class="ruby">    def correct_user</code>
+          <code class="ruby">    def experiment_params</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="66">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="4" data-linenumber="58">
+          <span class="hits">4</span>
           
-          <code class="ruby">      @experiment = current_user.experiments.find_by(id: params[:id])</code>
+          <code class="ruby">      params</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="67">
-          <span class="hits">6</span>
+        <li class="never" data-hits="" data-linenumber="59">
           
-          <code class="ruby">      redirect_to root_url if @experiment.nil?</code>
+          
+          <code class="ruby">      .require(:experiment)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="68">
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby">      .permit(</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby">        *Experiment::REGISTRABLE_ATTRIBUTES,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">        timetables_attributes: Timetable::REGISTRABLE_ATTRIBUTES</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">      )</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="69">
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby">    # 正しいユーザーかどうか確認</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="67">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def correct_user</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="68">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      @experiment = current_user.experiments.find_by(id: params[:id])</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="69">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      redirect_to root_url if @experiment.nil?</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="71">
           
           
           <code class="ruby">end</code>
@@ -2874,7 +2916,7 @@
         <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">      #flash[:info] = &quot;認証メールを送信しました。メールアドレスを確認してください&quot;</code>
+          <code class="ruby">      # flash[:info] = &quot;認証メールを送信しました。メールアドレスを確認してください&quot;</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="24">

@@ -3,6 +3,9 @@ header.navbar.navbar-expand.navbar-dark.bg-dark.fixed-top
     = link_to "被験者ネット", root_path, id: "logo"
     nav
       ul.nav.navbar-nav.navbar-right
+        li = search_form_for @q, url: experiments_path, class: "form-inline" do |f|
+          = f.text_field :name_cont, class: "form-control mr-sm-1"
+          = f.submit
         - if logged_in?
           - if current_user.admin?
             li = link_to "ユーザーの管理", users_path, class: "nav-link"
