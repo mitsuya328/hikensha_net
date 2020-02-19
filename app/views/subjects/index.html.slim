@@ -10,6 +10,7 @@ table.table.table-hover
       th= Subject.human_attribute_name(:email)
       th= Subject.human_attribute_name(:gender)
       th= Subject.human_attribute_name(:birth_date)
+      th= Subject.human_attribute_name(:note)
   tbody
     - @subjects.zip(1..100) do |subject, i|
       tr
@@ -18,5 +19,6 @@ table.table.table-hover
         td= subject.email
         td= subject.gender
         td= subject.birth_date
+        td= subject.note
 
 = link_to 'エクスポート', experiment_subjects_path(format: :csv), class: 'btn btn-primary mb-3'

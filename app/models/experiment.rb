@@ -1,7 +1,7 @@
 class Experiment < ApplicationRecord
   belongs_to :user
   has_many :timetables, dependent: :destroy
-  has_many :subjects, through: :timetables
+  has_many :subjects
   attr_accessor :number_of_subjects
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
@@ -13,7 +13,6 @@ class Experiment < ApplicationRecord
   REGISTRABLE_ATTRIBUTES = %i(name description deadline picture number_of_subjects location reward amount_of_reward)
 
   def selectable_timetables
-    #timetables.select{ |timetable| timetable.subjects.count < timetable.number_of_subjects }
     timetables.select{ |timetable| timetable.selectable? }
   end
 

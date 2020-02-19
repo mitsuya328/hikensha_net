@@ -1,9 +1,13 @@
 class Subject < ApplicationRecord
   belongs_to :timetable
-  has_one :experiment, through: :timetable
+  belongs_to :experiment
+  belongs_to :user, optional: true
   validates :timetable_id, presence: true
-  validates :email, presence: true
-  validate :timetable_is_selectable
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 255 },
+                    format: { with: VALID_EMAIL_REGEX}
+  validate :correct_timetable
+  validate :timetable_is_selectable, if: :will_save_change_to_timetable_id?
 
   def start_at
     timetable.start_at
@@ -23,7 +27,7 @@ class Subject < ApplicationRecord
   end
   
   def self.csv_attributes
-    ["start_at", "email", "gender", "birth_date"]
+    ["start_at", "email", "gender", "birth_date", "note"]
   end
 
   def self.generate_csv
@@ -37,6 +41,12 @@ class Subject < ApplicationRecord
   end
 
   private
+    def correct_timetable
+      unless timetable.experiment == experiment
+        errors[:base] << "開始時刻が不正な値です"
+      end
+    end
+    
     def timetable_is_selectable
       #unless timetable.subjects.count < timetable.number_of_subjects
       unless timetable.selectable?

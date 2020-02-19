@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :experiments, dependent: :destroy
   has_many :relationships, foreign_key: "examiner_id", dependent: :destroy
   has_many :examinees, through: :relationships
+  has_many :subjects
+  has_many :entry_experiments, through: :subjects, source: :experiment
   attr_accessor :remember_token, :activation_token, :reset_token, :experiment_forms
   before_save   :downcase_email
   before_create :create_activation_digest

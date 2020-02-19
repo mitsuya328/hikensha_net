@@ -1,4 +1,6 @@
 - provide(:title, '参加申込み')
 h1 参加申込み
 
-= render partial: 'form', locals: { path: experiment_subjects_path(@experiment) }
+= render partial: 'form', locals: { path: experiment_subjects_path(@experiment),
+                                    method: :post,
+                                    timetables: @experiment.selectable_timetables }

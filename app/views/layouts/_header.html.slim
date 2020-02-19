@@ -5,7 +5,7 @@ header.navbar.navbar-expand.navbar-dark.bg-dark.fixed-top
       ul.nav.navbar-nav.navbar-right
         li = search_form_for @q, url: experiments_path, class: "form-inline" do |f|
           = f.text_field :name_cont, class: "form-control mr-sm-1"
-          = f.submit
+          = f.submit class: "btn btn-light"
         - if logged_in?
           - if current_user.admin?
             li = link_to "ユーザーの管理", users_path, class: "nav-link"

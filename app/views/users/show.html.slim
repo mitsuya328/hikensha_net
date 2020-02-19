@@ -2,7 +2,10 @@
 
 h1 = @user.name
 
-
-- if @user.experiments.any?
+- if @experiments.any?
   h2 実施予定の実験
   = render 'experiments/experiments_table', experiments: @experiments
+
+- if @entry_experiments.any?
+  h2 参加予定の実験
+  = render 'experiments/experiments_table', experiments: @entry_experiments
