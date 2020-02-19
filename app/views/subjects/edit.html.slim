@@ -1,0 +1,6 @@
+- provide(:title, "申込み内容の編集")
+h1 申込み内容の編集
+
+= render partial: 'form', locals: { path: subject_path(@subject),
+                                    method: :patch,
+                                    timetables: [@subject.timetable] | @experiment.selectable_timetables }

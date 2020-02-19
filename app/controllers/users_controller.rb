@@ -9,7 +9,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @experiments = @user.experiments.order(created_at: :desc).paginate(page: params[:page])
+    @experiments = @user.experiments.order(created_at: :desc).take(5)
+    @entry_experiments = @user.entry_experiments.order(created_at: :desc).take(5)
   end
 
   def new

@@ -25,9 +25,10 @@ User.first.experiments.create!(name: "【サンプル】心理実験被験者募
   Experiment.first.timetables.create!(start_at: n.week.after, number_of_subjects: 3)
 end
 
-Timetable.first.subjects.create!(email: "subject@hikensha.net",
-                                sex: '1',
-                                birth_date: 20.years.ago)
+Experiment.first.subjects.create!(timetable: Timetable.first,
+                                  email: "subject@hikensha.net",
+                                  sex: '1',
+                                  birth_date: 20.years.ago)
 
 # 管理ユーザー
 User.create!(name:  "Admin User",

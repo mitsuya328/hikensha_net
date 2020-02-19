@@ -3,8 +3,6 @@ class ExperimentsController < ApplicationController
   before_action :correct_user,   only: %i(edit update destroy)
 
   def index
-    # @experiments = Experiment.order(deadline: :asc).paginate(page: params[:page])
-    # @q = Experiment.ransack(params[:q])
     @experiments = @q.result(distinct: true).order(deadline: :asc).paginate(page: params[:page])
   end
 
@@ -18,13 +16,11 @@ class ExperimentsController < ApplicationController
   end
 
   def create
-    @experiment = Experiment.new(experiment_params)
-    @experiment.user = current_user
+    @experiment = current_user.experiments.new(experiment_params)
     @experiment.timetables.each do |timetable|
       timetable.number_of_subjects = @experiment.number_of_subjects
     end
     if @experiment.save
-      #flash[:success] = "実験を登録しました"
       redirect_to @experiment, success: "実験を登録しました"
     else
       render 'new'
@@ -32,14 +28,11 @@ class ExperimentsController < ApplicationController
   end
 
   def edit
-    #@experiment = Experiment.find(params[:id])
     @experiment.number_of_subjects = @experiment.timetables.first.number_of_subjects if @experiment.timetables.any?
   end
 
   def update
-    #@experiment = Experiment.find(params[:id])
     if @experiment.update(experiment_params)
-      #flash[:success] = "実験内容を更新しました"
       redirect_to @experiment, success: "実験内容を更新しました"
     else
       render 'edit'
@@ -48,7 +41,6 @@ class ExperimentsController < ApplicationController
 
   def destroy
     @experiment.destroy
-    #flash[:success] = "「#{@experiment.name}」を削除しました。"
     redirect_to root_path, success: "「#{@experiment.name}」を削除しました。"
   end
 
